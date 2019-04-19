@@ -7,11 +7,16 @@ canvas.height = ctx.height = 200
 ctx.lineWidth = 1
 
 const C = 0.0
-let current = 0.0
+let z = Math.random()
+let i = Math.random()
 
 function draw() {
-  current = z^2 + C
-  ctx.fillRect(x, y, width, height)
+  z = z * z - i * i + z
+  i = 2 * z * i + i
+  
+  if (z * i < 5) {
+    ctx.fillRect(z, i, 1, 1)
+  }
 }
 
 function render() {
