@@ -25,20 +25,24 @@ function checkSet(z, i) {
     imaginary = tmpI
   }
   
-  const total = real * imaginary
+  const total = real * imaginary * 10
   
-  if (total < max) {
+  if (total < max * 2) {
     maxVal.value = total
-    if (total < 0.01) {
+    if (total < 0.001) {
       ctx.fillStyle = 'rgb(1, 1, 1)'
-    } else if (total < 0.03) {
+    } else if (total < -10) {
+      ctx.fillStyle = 'rgb(180, 50, 220)'
+    } else if (total < -5) {
       ctx.fillStyle = 'rgb(200, 40, 230)'
-    } else if (real * imaginary < 0.07) {
+    } else if (total < 0) {
       ctx.fillStyle = 'rgb(225, 30, 230)'  
-    } else if (real * imaginary < 0.09) {
-      ctx.fillStyle = 'rgb(245, 20, 220)'
-    } else if (real * imaginary < 0.2) {
-      ctx.fillStyle = 'rgb(250, 20, 200)' 
+    } else if (total < 5) {
+      ctx.fillStyle = 'rgb(205, 20, 220)'
+    } else if (total < 10) {
+      ctx.fillStyle = 'rgb(180, 20, 200)' 
+    } else {
+      ctx  
     }
     ctx.fillRect(z * 1000, i * 1000, 1, 1)
   }
@@ -57,9 +61,9 @@ let switchs = false
 
 function loop() {
   if (!switchs) {
-    max--
+    max --
   } else {
-    max++
+    max ++
   }
   if (max > 100 || max < 1) {
     switchs = !switchs 
@@ -67,7 +71,7 @@ function loop() {
   
   render()
   
-  requestAnimationFrame(loop, 100)
+  requestAnimationFrame(loop, 10)
 }
 
 loop()
