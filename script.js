@@ -10,7 +10,7 @@ ctx.lineWidth = 1
 
 const panX = 0
 const panY = 0
-const mag = 500
+const mag = 1500
 let counter = 1
 
 function checkSet(z, i) {
@@ -24,7 +24,7 @@ function checkSet(z, i) {
     imaginary = tmpI
   }
   
-  const total = real * imaginary * 100
+  const total = real * imaginary
   
   if (total < max * 2) {
     if (total < -1500) {
@@ -37,25 +37,25 @@ function checkSet(z, i) {
       ctx.fillStyle = 'rgb(80, 150, 220)'
     } else if (total < -5) {
       ctx.fillStyle = 'rgb(20, 140, 230)'
-    } else if (total < 10) {
+    } else if (total < 0.001) {
       ctx.fillStyle = 'rgb(25, 130, 220)'  
-    } else if (total < 35) {
+    } else if (total < 0.01) {
       ctx.fillStyle = 'rgb(20, 220, 220)'
-    } else if (total < 60) {
+    } else if (total < 0.1) {
       ctx.fillStyle = 'rgb(220, 20, 100)' 
     } else {
       ctx.fillStyle = 'rgb(10, 180, 220)'  
     }
-    ctx.fillRect(z * 500, i * 500, 1, 1)
+    ctx.fillRect(z * 1500, i * 1500, 1, 1)
   }
 }
 
 function render() {
-  for (let x = 0; x < canvas.width; x++) {
-    for (let y = 0; y < canvas.height; y++) {
-      checkSet(x / mag - panX, y / mag - panY)
-    }
-  }
+ // for (let x = 0; x < canvas.width; x++) {
+ //   for (let y = 0; y < canvas.height; y++) {
+      checkSet(Math.random() * ctx.width / mag - panX, Math.random() * ctx.height / mag - panY)
+ //   }
+//  }
 }
 
 let switchs = false
@@ -66,13 +66,13 @@ function loop() {
   } else {
     max ++
   }
-  if (max > 200 || max < 1) {
+  if (max > 100 || max < 1) {
     switchs = !switchs 
   }
   
   render()
   
-  requestAnimationFrame(loop, 10)
+  requestAnimationFrame(loop)
 }
 
 loop()
