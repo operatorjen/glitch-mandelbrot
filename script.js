@@ -25,31 +25,31 @@ function checkSet(z, i) {
     imaginary = tmpI
   }
   
-  const total = real * imaginary * 10
+  const total = real * imaginary * 100
   
   if (total < max * 2) {
-    maxVal.value = total
-    if (total < 0.001) {
+    //maxVal.value = total
+    if (total < -30) {
       ctx.fillStyle = 'rgb(1, 1, 1)'
     } else if (total < -10) {
       ctx.fillStyle = 'rgb(180, 50, 220)'
     } else if (total < -5) {
-      ctx.fillStyle = 'rgb(200, 40, 230)'
+      ctx.fillStyle = 'rgb(20, 140, 230)'
     } else if (total < 0) {
-      ctx.fillStyle = 'rgb(225, 30, 230)'  
-    } else if (total < 5) {
+      ctx.fillStyle = 'rgb(225, 30, 200)'  
+    } else if (total < 15) {
       ctx.fillStyle = 'rgb(205, 20, 220)'
-    } else if (total < 10) {
+    } else if (total < 30) {
       ctx.fillStyle = 'rgb(180, 20, 200)' 
     } else {
-      ctx  
+      ctx.fillStyle = 'rgb(10, 180, 220)'  
     }
-    ctx.fillRect(z * 1000, i * 1000, 1, 1)
+    ctx.fillRect(z * 1000, i * 1000, 2, 2)
   }
 }
 
 function render() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  //ctx.clearRect(0, 0, canvas.width, canvas.height)
   for (let x = 0; x < canvas.width; x++) {
     for (let y = 0; y < canvas.height; y++) {
       checkSet(x / mag - panX, y / mag - panY)
