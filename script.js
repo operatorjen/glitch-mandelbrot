@@ -17,7 +17,7 @@ ctx.lineWidth = 1
 
 const panX = 0.5
 const panY = 0.5
-const mag = 800
+const mag = 1000
 let counter = 1
 
 function checkSet(z, i) {
@@ -33,9 +33,9 @@ function checkSet(z, i) {
   
   if (real * imaginary < max) {
    // console.log(z * 100, i * 100)
-    if (real * imaginary < max - 0.0001) {
-      ctx.fillStyle = 'rgb(255, 20, 200)'
-    } else if (real * imaginary < max - 0.01) {
+    if (real * imaginary < max) {
+      ctx.fillStyle = 'rgb(1, 1, 1)'
+    } else if (real * imaginary < (max + 2)) {
       ctx.fillStyle = 'rgb(55, 120, 200)'  
     }
     ctx.fillRect(z * 1000, i * 1000, 1, 1)
