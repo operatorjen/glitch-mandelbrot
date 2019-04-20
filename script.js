@@ -18,8 +18,8 @@ function checkSet(z, i) {
   let imaginary = i
   
   for (let j = 0; j < max; j++) {
-    let tmpZ = (real * real) - (imaginary * imaginary) + z
-    let tmpI = (2 * real * imaginary) + i
+    let tmpZ = (real * real) - (imaginary * imaginary) + i
+    let tmpI = (2 * real * imaginary) + z
     real = tmpZ
     imaginary = tmpI
   }
@@ -28,25 +28,25 @@ function checkSet(z, i) {
   
   if (total < max * 2) {
     if (total < -1500) {
-      ctx.fillStyle = 'rgb(1, 1, 1)'
+      ctx.fillStyle = 'rgb(1, 1, 1, 0.3)'
     } else if (total < -150) {
-      ctx.fillStyle = 'rgba(20, 200, 20, 0.7)'
+      ctx.fillStyle = 'rgba(20, 200, 20, 0.5)'
     } else if (total < -70) {
-      ctx.fillStyle = 'rgb(20, 120, 101)'
+      ctx.fillStyle = 'rgba(20, 120, 101, 0.5)'
     } else if (total < -30) {
-      ctx.fillStyle = 'rgb(80, 150, 220)'
+      ctx.fillStyle = 'rgba(80, 150, 220, 0.6)'
     } else if (total < -5) {
-      ctx.fillStyle = 'rgb(20, 140, 230)'
+      ctx.fillStyle = 'rgba(20, 140, 230, 0.5)'
     } else if (total < 0.001) {
-      ctx.fillStyle = 'rgb(25, 130, 220)'  
+      ctx.fillStyle = 'rgba(25, 130, 220, 0.6)'  
     } else if (total < 0.01) {
-      ctx.fillStyle = 'rgb(20, 220, 220)'
+      ctx.fillStyle = 'rgba(20, 220, 220, 0.4)'
     } else if (total < 0.1) {
-      ctx.fillStyle = 'rgb(220, 20, 100)' 
+      ctx.fillStyle = 'rgba(220, 20, 100, 0.7)' 
     } else {
-      ctx.fillStyle = 'rgb(10, 180, 220)'  
+      ctx.fillStyle = 'rgba(10, 180, 220, 0.5)'  
     }
-    ctx.fillRect(z * 2500, i * 2500, 1, 1)
+    ctx.fillRect(z * 1000, i * 1000, 0.5, 0.5)
   }
 }
 
