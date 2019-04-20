@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 
-let max = 1
+let max = 100
 
 canvas.width = ctx.width = window.innerWidth
 canvas.height = ctx.height = window.innerHeight
