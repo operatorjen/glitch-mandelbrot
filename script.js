@@ -10,7 +10,7 @@ ctx.lineWidth = 1
 
 const panX = 0
 const panY = 0
-const mag = 1500
+const mag = 1000
 let counter = 1
 
 function checkSet(z, i) {
@@ -30,9 +30,9 @@ function checkSet(z, i) {
     if (total < -1500) {
       ctx.fillStyle = 'rgb(1, 1, 1)'
     } else if (total < -150) {
-      ctx.fillStyle = 'rgb(20, 200, 20)'
+      ctx.fillStyle = 'rgba(20, 200, 20, 0.7)'
     } else if (total < -70) {
-      ctx.fillStyle = 'rgb(1, 1, 1)'
+      ctx.fillStyle = 'rgb(20, 120, 101)'
     } else if (total < -30) {
       ctx.fillStyle = 'rgb(80, 150, 220)'
     } else if (total < -5) {
@@ -46,16 +46,16 @@ function checkSet(z, i) {
     } else {
       ctx.fillStyle = 'rgb(10, 180, 220)'  
     }
-    ctx.fillRect(z * 1500, i * 1500, 1, 1)
+    ctx.fillRect(z * 2500, i * 2500, 1, 1)
   }
 }
 
 function render() {
- // for (let x = 0; x < canvas.width; x++) {
- //   for (let y = 0; y < canvas.height; y++) {
-      checkSet(Math.random() * ctx.width / mag - panX, Math.random() * ctx.height / mag - panY)
- //   }
-//  }
+  for (let x = 0; x < canvas.width; x++) {
+    for (let y = 0; y < canvas.height; y++) {
+      checkSet(x / mag - panX, y / mag - panY)
+    }
+  }
 }
 
 let switchs = false
