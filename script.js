@@ -25,15 +25,21 @@ function checkSet(z, i) {
     imaginary = tmpI
   }
   
-  if (real * imaginary < max) {
-    maxVal.value = real * imaginary
-    if (real * imaginary < 0.05) {
+  const total = real * imaginary
+  
+  if (total < max) {
+    maxVal.value = total
+    if (total < 0.01) {
       ctx.fillStyle = 'rgb(1, 1, 1)'
+    } else if (total < 0.03) {
+      ctx.fillStyle = 'rgb(200, 40, 230)'
     } else if (real * imaginary < 0.07) {
-      ctx.fillStyle = 'rgb(55, 120, 200)'  
+      ctx.fillStyle = 'rgb(225, 30, 230)'  
     } else if (real * imaginary < 0.09) {
-      ctx.fillStyle = 'rgb(255, 20, 200)'
-    } 
+      ctx.fillStyle = 'rgb(245, 20, 220)'
+    } else if (real * imaginary < 0.2) {
+      ctx.fillStyle = 'rgb(250, 20, 200)' 
+    }
     ctx.fillRect(z * 1000, i * 1000, 1, 1)
   }
 }
