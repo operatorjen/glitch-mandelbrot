@@ -1,29 +1,38 @@
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
+const maxVal = document.querySelector('#max')
+
+let max = 1
+
+maxVal.onchange = function () {
+  max = parseInt(this.value, 10)
+  render()
+}
 
 canvas.width = ctx.width = window.innerWidth
 canvas.height = ctx.height = window.innerHeight
 
 ctx.lineWidth = 1
 
-const panX = 1.5
-const panY = 1.5
-const mag = 100
+const panX = 2
+const panY = 2
+const mag = 200
+let counter = 1
 
 function checkSet(z, i) {
   let real = z
   let imaginary = i
   
-  for (let j = 0; j < 100; j++) {
+  for (let j = 0; j < 10; j++) {
     let tmpZ = (real * real) - (imaginary * imaginary) + z
     let tmpI = (2 * real * imaginary) + i
     real = tmpZ
     imaginary = tmpI
   }
   
-  if (real * imaginary < 5) {
+  if (real * imaginary < max) {
    // console.log(z * 100, i * 100)
-    ctx.fillRect(z * 100 + xh, i * 100, 1, 1)
+    ctx.fillRect(z * 100 + window.innerWidth / 2, i * 100 + window.innerHeight / 2, 1, 1)
   }
 }
 
