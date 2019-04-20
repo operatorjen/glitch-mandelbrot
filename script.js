@@ -4,19 +4,13 @@ const maxVal = document.querySelector('#max')
 
 let max = 100
 
-maxVal.onblur = maxVal.onchange = function () {
-  max = parseInt(this.value, 10)
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-  render()
-}
-
 canvas.width = ctx.width = window.innerWidth
 canvas.height = ctx.height = window.innerHeight
 
 ctx.lineWidth = 1
 
-const panX = 0.5
-const panY = 0.5
+const panX = 0
+const panY = 0
 const mag = 1000
 let counter = 1
 
@@ -32,12 +26,14 @@ function checkSet(z, i) {
   }
   
   if (real * imaginary < max) {
-   // console.log(z * 100, i * 100)
-    if (real * imaginary < max) {
+    maxVal.value = real * imaginary
+    if (real * imaginary < 0.05) {
       ctx.fillStyle = 'rgb(1, 1, 1)'
-    } else if (real * imaginary < (max + 2)) {
+    } else if (real * imaginary < 0.07) {
       ctx.fillStyle = 'rgb(55, 120, 200)'  
-    }
+    } else if (real * imaginary < 0.09) {
+      ctx.fillStyle = 'rgb(255, 20, 200)'
+    } 
     ctx.fillRect(z * 1000, i * 1000, 1, 1)
   }
 }
