@@ -18,8 +18,8 @@ function checkSet(z, i) {
   let imaginary = i
   
   for (let j = 0; j < max; j++) {
-    let tmpZ = (real * real) - (imaginary * imaginary) + i
-    let tmpI = (2 * real * imaginary) + z
+    let tmpZ = (real * (Math.sin(counter/11) + real)) - (imaginary * (Math.sin(counter/10) + imaginary)) + z
+    let tmpI = (2 * real * imaginary) + i
     real = tmpZ
     imaginary = tmpI
   }
@@ -61,6 +61,8 @@ function render() {
 let switchs = false
 
 function loop() {
+  counter++;
+
   if (!switchs) {
     max --
   } else {
