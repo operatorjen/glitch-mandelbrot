@@ -6,7 +6,7 @@ let max = 100
 canvas.width = ctx.width = window.innerWidth
 canvas.height = ctx.height = window.innerHeight
 
-ctx.lineWidth = 10
+ctx.lineWidth = 1
 
 const panX = 0
 const panY = 0
