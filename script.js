@@ -31,17 +31,17 @@ function checkSet(z, i) {
     } else if (total < -550) {
       ctx.fillStyle = 'rgba(20, 100, 120, 0.95)'
     } else if (total < -170) {
-      ctx.fillStyle = 'rgba(20, 120, 101, 0.5)'
+      ctx.fillStyle = 'rgba(20, 120, 101, 0.95)'
     } else if (total < -30) {
-      ctx.fillStyle = 'rgba(80, 50, 220, 0.6)'
+      ctx.fillStyle = 'rgba(80, 50, 220, 0.96)'
     } else if (total < -5) {
       ctx.fillStyle = 'rgba(20, 140, 230, 0.5)'
     } else if (total < 0.001) {
-      ctx.fillStyle = 'rgba(25, 130, 220, 0.6)'  
+      ctx.fillStyle = 'rgba(25, 130, 220, 0.96)'  
     } else if (total < 0.01) {
       ctx.fillStyle = 'rgba(220, 10, 220, 0.4)'
     } else if (total < 0.1) {
-      ctx.fillStyle = 'rgba(220, 20, 100, 0.7)' 
+      ctx.fillStyle = 'rgba(220, 20, 100, 0.97)' 
     } else {
       ctx.fillStyle = 'rgba(10, 140, 220, 0.5)'  
     }
