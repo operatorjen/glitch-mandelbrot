@@ -65,7 +65,7 @@ function loop() {
   } else {
     max ++
   }
-  if (max > 150 || max < 1) {
+  if (max > 1150 || max < 1) {
     switchs = !switchs 
   }
   
